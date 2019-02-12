@@ -1,0 +1,87 @@
+/*acomodar el footer
+*/
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  margin-bottom: 40px;
+}
+footer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+
+/*la barra con los submenus
+*/
+*{
+
+}
+
+#header{
+    padding:0px;
+  margin:0px;
+  margin:auto;
+  width:100%;
+}
+
+ul,ol{
+  list-style:none;
+}
+
+.nav li a{
+  background-color:#DDD;
+  text-decoration:none;
+  padding:10px 15px;
+  display:block;
+}
+
+.nav li a:hover{
+  background-color:yellow;
+}
+.nav{
+  background-color:yellow;
+}
+.nav > li{
+  float:left;
+}
+.nav li ul{
+  display:none;
+  position:absolute;
+  min-width:140px;
+}
+
+.nav li:hover > ul{
+  display:block;
+}
+
+/*vista general
+*/
+body{
+  background-color:#B5B8B1
+}
+.barra{
+  background-color:gray;
+  margin-top: -20px;
+}
+footer{
+  background-color:#9c9c9c;
+  text-align:center;
+  height:58px;
+}
+
+#mensaje{
+	color:red;
+	text-align:center;
+	font-weight:bold;
+}
+
+.botonBig{
+	width:150px;
+	height:50px;
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans >
+    <form-bean name="usuarioFormBean" type="web.parqueadero.struts.form.UsuarioFormBean" />
+    <form-bean name="usuarioIngresaFormBean" type="web.parqueadero.struts.form.UsuarioIngresaFormBean" />
+    <form-bean name="ingresaVehiculoForm" type="web.parqueadero.struts.form.IngresaVehiculoForm" />
+    <form-bean name="vehiculoFormBean" type="web.parqueadero.struts.form.VehiculoFormBean" />
+    <form-bean name="precioFormBean" type="web.parqueadero.struts.form.PrecioFormBean" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+  
+    <action forward="/registroServicio.jsp" path="/registroServ" />
+    
+    <action
+      input="/registroServicio.jsp"
+      name="usuarioFormBean"
+      path="/registraUsuario"
+      scope="request"
+      validate="true"
+      type="web.parqueadero.struts.action.RegistraUsuarioAction" >
+      	<forward name="registrado" path="/index.jsp"  />
+      </action>
+      
+    <action
+      name="usuarioIngresaFormBean"
+      path="/ingresaUsuario"
+      scope="request"
+      type="web.parqueadero.struts.action.IngresaUsuarioAction">
+      	<forward name="valido" path="/WEB-INF/panel.jsp" />
+      	<forward name="invalido" path="/index.jsp" />
+      </action>
+      
+    <action
+    name="usuarioIngresaFormBean"
+    scope="request"
+      path="/eleccionesPanel"
+      parameter="eleccion"
+      type="web.parqueadero.struts.action.EleccionesPanelAction">
+      	<forward name="registra" path="/WEB-INF/registroParqueos.jsp" />
+        <forward name="sinprecios" path="/WEB-INF/panel.jsp" />
+      	<forward name="reporta" path="/WEB-INF/reportes.jsp" />
+      	<forward name="acerca" path="/index.jsp" />
+      </action>
+      
+    <action forward="/index.jsp" path="/inicio" />
+    <action forward="/WEB-INF/panel.jsp" path="/panel" />
+    
+    
+    <action path="/regPrecios" 
+            type="web.parqueadero.struts.action.IngresoPreciosAction">
+        <forward name="devuelve" path="/WEB-INF/registroPrecios.jsp" />
+    </action> 
+
+   
+    
+    
+    <action
+      path="/cierreSesion"
+      type="web.parqueadero.struts.action.CierreSesionAction">
+      	<forward name="cierre" path="/index.jsp" />
+      </action>
+    
+    <action
+      name="vehiculoFormBean"
+      path="/ingresaVehiculo"
+      scope="request"
+      parameter="operacion"
+      type="web.parqueadero.struts.action.IngresaVehiculoAction">
+		<forward name="actualizar" path="/WEB-INF/registroParqueos.jsp" />
+	  </action>
+	  
+    <action
+      name="precioFormBean"
+      path="/seleccionPrecios"
+      scope="request"
+      type="web.parqueadero.struts.action.SeleccionPreciosAction">
+      	<forward name="actualizarPrecio" path="/WEB-INF/registroPrecios.jsp" />
+        <forward name="precioinvalido" path="/WEB-INF/registroPrecios.jsp" />
+      </action>
+      
+    <action
+      path="/buscaYear"
+      type="web.parqueadero.struts.action.BuscaYearAction">
+      	<forward name="respuesta" path="/WEB-INF/reportes.jsp" />
+      </action>
+      
+    <action
+        path="/desplegaParqueo" 
+        type="web.parqueadero.struts.action.DesplegarParqueoAction">
+            <forward name="desplegado" path="/WEB-INF/registroParqueos.jsp" />
+    </action>  
+	  
+  </action-mappings>
+
+  <message-resources parameter="web.parqueadero.struts.ApplicationResources" />
+</struts-config>
+
